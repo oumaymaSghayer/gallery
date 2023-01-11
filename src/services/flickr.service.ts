@@ -1,22 +1,21 @@
+import { Data } from "../interfaces/data.interface"
+import { PhotoData } from "../interfaces/photo_data.interface"
 
-const key ="58acf7c567c26a17bc8184123e88cddf"
-const secret ="1ec3e44b973829cb"
-const URL ="1ec3e44b973829cb"
 
-const format = (img: any)=>{
+const format = (img: PhotoData)=>{
    return {
     id: img["id"],
     title: img["title"],
-    url: `https://live.staticflickr.com/${img["server"]}/${img["id"]}_${img["secret"]}_w.jpg`
+    url: `${process.env.REACT_APP_FLICKR_API_IMAGE_URL}/${img["server"]}/${img["id"]}_${img["secret"]}_m.jpg`
    }
 }
 
 export const flickrSearch = (page : number)=>{
-    const apiUrl= `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&min_taken_date=1356973200&max_taken_date=1356991200&lat=29.9537&lon=-90.0777&radius=5&format=json&per_page=5&page=${page}&nojsoncallback=true`
+    const apiUrl= `${process.env.REACT_APP_FLICKR_API}&api_key=${process.env.REACT_APP_FLICKR_API_KEY}&text=animals&min_taken_date=1356973200&max_taken_date=1356991200&radius=20&format=json&per_page=15&page=${page}&nojsoncallback=true`
     return fetch(apiUrl)
     .then((res)=>res.json())
-    .then((data: any)=>{
-       return data.photos.photo.map((e: any)=>{
+    .then((data: Data)=>{
+       return data.photos.photo.map((e: PhotoData)=>{
         return format(e)
        })
     })
