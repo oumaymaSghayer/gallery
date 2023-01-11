@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Image } from "../interfaces/image.interface";
 
 
-function useInViewPort() {
+function useInViewPort(hasMore: boolean) {
     
     const [isInViewport, setIsInViewport] = useState(false);
     const [refElement, setRefElement] = useState<HTMLElement | null>(null);
@@ -16,7 +16,7 @@ function useInViewPort() {
     useEffect(() => {
         if (refElement && !isInViewport) {
             const observer = new IntersectionObserver(
-                ([entry]) => entry.isIntersecting && setIsInViewport(true)
+                ([entry]) => entry.isIntersecting && hasMore && setIsInViewport(true)
             );
             observer.observe(refElement);
 
@@ -26,7 +26,7 @@ function useInViewPort() {
         }
         if (refElement && isInViewport) {
             const observer = new IntersectionObserver(
-                ([entry]) => !entry.isIntersecting && setIsInViewport(false)
+                ([entry]) => !entry.isIntersecting && hasMore && setIsInViewport(false)
             );
             observer.observe(refElement);
 

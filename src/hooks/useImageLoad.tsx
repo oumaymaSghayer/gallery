@@ -9,7 +9,6 @@ function useImageLoad(pageNum: number) {
     const [error, setError] = useState(false);
 
     useEffect(()=>{
-        console.log("fired")
         setLoading(true)
         setError(false)
         flickrSearch(pageNum).then((res)=>{

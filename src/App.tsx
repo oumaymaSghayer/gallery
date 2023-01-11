@@ -1,9 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios';
-import { flickrSearch } from './services/flickr.service';
-import ImageList from './components/imageList';
+import { useState, useMemo } from 'react';
 import useImageLoad from './hooks/useImageLoad';
 import useInViewPort from './hooks/useInViewPort';
 import { Image } from './interfaces/image.interface';
@@ -12,12 +7,12 @@ import ImageCard from './components/imageCard';
 function App() {
   const [pageNum, setPageNum] = useState(1);
   const { loading, error, imageList, hasMore}=useImageLoad(pageNum)
-  console.log("imageList", imageList)
-  const { isInViewport, ref } = useInViewPort();
-  useMemo(()=>{ setPageNum((prev) => prev + 1)}, [isInViewport])
+  const { isInViewport, ref } = useInViewPort(hasMore);
+   useMemo(()=>{ setTimeout(function(){
+     setPageNum((prev) => prev + 1)
+  }, 2000); }, [isInViewport])
   return (
     <>
-     
      {
         imageList.map((e:Image,index:number)=>{
           if (imageList.length === index+1)

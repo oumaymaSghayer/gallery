@@ -16,7 +16,6 @@ export const flickrSearch = (page : number)=>{
     return fetch(apiUrl)
     .then((res)=>res.json())
     .then((data: any)=>{
-       //console.log(data)
        return data.photos.photo.map((e: any)=>{
         return format(e)
        })
