@@ -11,6 +11,7 @@ function App() {
   const [query, setQuery] = useState<string>("dogs");
   const { loading, error, imageList, hasMore}=useImageLoad(pageNum, query)
   const { isInViewport, ref } = useInViewPort(hasMore);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useMemo(()=>{ setPageNum((prev) => prev + 1); }, [isInViewport])
   const handleSearch = (e: ChangeEvent<HTMLInputElement>)=>{
     setQuery(e.target.value)

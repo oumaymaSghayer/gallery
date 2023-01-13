@@ -33,6 +33,7 @@ function useInViewPort(hasMore: boolean) {
                 observer.disconnect();
             };
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isInViewport, refElement]);
 
   return { isInViewport, ref: setRef }
