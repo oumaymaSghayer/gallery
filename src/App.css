@@ -98,7 +98,7 @@ img{
 }
 
 .search-input:focus{
-  border: 3px solid #008afe;
+  border: 3px solid #388e3c;
 }
 
   @media screen and (min-width: 850px) and (max-width:1024px) {

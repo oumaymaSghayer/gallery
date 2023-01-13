@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import { Image } from "../interfaces/image.interface";
 
 
 function useInViewPort(hasMore: boolean) {

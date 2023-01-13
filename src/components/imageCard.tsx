@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
-import { Image } from "../interfaces/image.interface";
+import {  useState } from "react";
+
 
 function ImageCard({image}: any) {
   const [isFavorite, setIsFavorite] = useState(localStorage.getItem("favorites")?.includes(image.id));
