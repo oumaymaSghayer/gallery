@@ -4,9 +4,9 @@ import { flickrSearch } from "../services/flickr.service";
 
 function useImageLoad(pageNum: number, query: string) {
     const [imageList, setImageList] = useState<Image[]>([]);
-    const [hasMore, setHasMore] = useState(false);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    const [hasMore, setHasMore] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<boolean>(false);
     
     useEffect(() => {
       setImageList([])

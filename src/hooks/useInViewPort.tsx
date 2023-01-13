@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 
 function useInViewPort(hasMore: boolean) {
     
-    const [isInViewport, setIsInViewport] = useState(false);
+    const [isInViewport, setIsInViewport] = useState<boolean>(false);
     const [refElement, setRefElement] = useState<HTMLElement | null>(null);
 
     const setRef = useCallback((node: HTMLElement | null) => {
