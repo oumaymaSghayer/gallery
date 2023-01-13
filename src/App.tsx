@@ -21,12 +21,12 @@ function App() {
       <input className='search-input' type="text" onChange={handleSearch} value={query}></input>
       <div className='list-container'>
       {
-        imageList.map((e: Image,index:number)=>{
+        imageList.length>0 ? imageList.map((e: Image,index:number)=>{
           if (imageList.length === index+1)
             return <div ref={ref} key={index}><ImageCard image={e} /></div>;
           return <div key={index}><ImageCard image={e} /></div>;
 
-        })
+        }) : <div>Sorry no pictures matching your search..</div>
      }
       </div>
      <div>{loading && "loading..."}</div>

@@ -14,7 +14,7 @@ const format = (img: PhotoData)=>{
 export const flickrSearch = (page : number, query: string)=>{
     const apiUrl= `${process.env.REACT_APP_FLICKR_API}&api_key=${process.env.REACT_APP_FLICKR_API_KEY}&text=${query}&min_taken_date=1356973200&max_taken_date=1356991200&radius=20&format=json&per_page=15&page=${page}&nojsoncallback=true`
     return fetch(apiUrl)
-    .then((res)=>res.json())
+    .then((res)=>{ return res.json()})
     .then((data: Data)=>{
        return data.photos.photo.map((e: PhotoData)=>{
         return format(e)
