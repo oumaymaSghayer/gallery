@@ -4,7 +4,7 @@ import useInViewPort from './hooks/useInViewPort';
 import { Image } from './interfaces/image.interface';
 import ImageCard from './components/imageCard';
 import "./App.css";
-import useLocalStorage from './hooks/useLocalStorage';
+
 
 function App() {
   const [pageNum, setPageNum] = useState<number>(1);
