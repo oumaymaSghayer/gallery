@@ -5,7 +5,7 @@ The pictures in this gallery use  [Flickr API](https://www.flickr.com/services/a
 Mock-up is ![animated](https://5a2583d7dd16c25cb2e8-358d15e499fca729302e63598be13736.ssl.cf3.rackcdn.com/frontend/hw-example-animated.gif)
 
 
-[Demo](https://www.flickr.com/services/api/flickr.photos.search.html)
+[Demo](https://reactflickrapigallery.netlify.app/)
 ## Run project
 
 In the project directory, you can run: `npm install && npm start`
