@@ -7,7 +7,7 @@
   background-color: var(--light-gray);
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   padding: 10vh 5vh;
   
