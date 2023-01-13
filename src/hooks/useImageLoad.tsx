@@ -7,9 +7,11 @@ function useImageLoad(pageNum: number, query: string) {
     const [hasMore, setHasMore] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+    
     useEffect(() => {
       setImageList([])
     }, [query])
+
     useEffect(()=>{
         setLoading(true)
         setError(false)

@@ -7,20 +7,20 @@ import "./App.css";
 import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
-  const [pageNum, setPageNum] = useState(1);
-  const [query, setQuery] = useState<string>("");
+  const [pageNum, setPageNum] = useState<number>(1);
+  const [query, setQuery] = useState<string>("dogs");
   const { loading, error, imageList, hasMore}=useImageLoad(pageNum, query)
   const { isInViewport, ref } = useInViewPort(hasMore);
   useMemo(()=>{ setPageNum((prev) => prev + 1); }, [isInViewport])
   const handleSearch = (e: ChangeEvent<HTMLInputElement>)=>{
-    console.log(e.target.value)
     setQuery(e.target.value)
     setPageNum(1)
   }
   return (
     <div className='App'>
-      <input type="text" onChange={handleSearch} value={query}></input>
-     {
+      <input className='search-input' type="text" onChange={handleSearch} value={query}></input>
+      <div className='list-container'>
+      {
         imageList.map((e: Image,index:number)=>{
           if (imageList.length === index+1)
             return <div ref={ref} key={index}><ImageCard image={e} /></div>;
@@ -28,6 +28,7 @@ function App() {
 
         })
      }
+      </div>
      <div>{loading && "loading..."}</div>
      <div>{error && "Error"}</div>
     </div>

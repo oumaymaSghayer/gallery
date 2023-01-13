@@ -6,12 +6,19 @@
   min-height: 100vh;
   background-color: var(--light-gray);
   display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 10vh 5vh;
+  
+}
+.list-container{
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 10vh 5vh;
-  
+  margin-top: 4vh;
 }
 .image-card{
   display: flex;
@@ -80,7 +87,19 @@ img{
   margin: 6px 8px
 }
   
+.search-input{
+  width: 20vw;
+  border: 3px solid gray;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
   
+}
+
+.search-input:focus{
+  border: 3px solid #008afe;
+}
 
   @media screen and (min-width: 850px) and (max-width:1024px) {
     /* additional rules even smaller monitors */

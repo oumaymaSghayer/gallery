@@ -17,7 +17,6 @@ function ImageCard({image}: any) {
     }
   }
 
-
   return (
     <div className="image-card"  >
       <div className="image-container">
@@ -27,8 +26,7 @@ function ImageCard({image}: any) {
      
      <div className="image-box">
       <p className="image-title">{image.title}</p>
-      <button className="image-favorite" onClick={()=>addToFavorite(image.id)}>Favorite</button>
-      
+      { isFavorite ? <div></div>: <button className="image-favorite" onClick={()=>addToFavorite(image.id)}>Favorite</button> }
      </div>
     </div>
   );
