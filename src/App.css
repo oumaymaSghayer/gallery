@@ -15,7 +15,7 @@
 }
 .image-card{
   display: flex;
-  margin: 8px 16px;
+  margin:  16px;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -26,7 +26,7 @@
 img{
   float: left;
     width:  250px;
-    height: 160px;
+    height: 180px;
     object-fit: cover;
 }
 .image-box{
@@ -43,10 +43,10 @@ img{
 
 .image-card:hover img {
   -webkit-filter: brightness(70%);
-	-moz-filter: brightness(70%);
-	-o-filter: brightness(70%);
-	-ms-filter: brightness(70%);
-	filter: brightness(70%);
+  -moz-filter: brightness(70%);
+  -o-filter: brightness(70%);
+  -ms-filter: brightness(70%);
+  filter: brightness(70%);
 }
 .image-card:hover .image-box {
   opacity: 1;
@@ -76,9 +76,48 @@ img{
 .image-box button:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.favorite-icon {
+  margin: 6px 8px
 }
+  
+  
 
+  @media screen and (min-width: 850px) and (max-width:1024px) {
+    /* additional rules even smaller monitors */
+    .App {
+      padding: 10vh 2vh;
+    }
+
+    img{
+      float: left;
+        width:  230px;
+        height: 150px;
+        object-fit: cover;
+    }
+ }
+
+ @media screen and (min-width: 550px ) and (max-width:850px) {
+  .App {
+    padding:5vh 2vh;
+  }
+
+  img{
+    float: left;
+    width:  220px;
+    height: 150px;
+      object-fit: cover;
+  }
+ }
+
+ @media screen and (max-width: 550px ) {
+  .App {
+    padding: 2vh;
+  }
+
+  img{
+    float: left;
+      width:  280px;
+      height: 200px;
+      object-fit: cover;
+  }
+ }

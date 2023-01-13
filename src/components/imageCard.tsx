@@ -1,33 +1,20 @@
 import { useEffect, useState } from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 import { Image } from "../interfaces/image.interface";
 
-function ImageCard({image}: any ) {
-  const [favorites, setFavorites] = useState([]);
+function ImageCard({image}: any) {
+  const [isFavorite, setIsFavorite] = useState(localStorage.getItem("favorites")?.includes(image.id));
+  
   const addToFavorite = (id:number) =>{
-    console.log("add to favorites")
     if (localStorage.favorites) {
       let storedPics = JSON.parse(localStorage.favorites);
       storedPics.push(id)
       localStorage.setItem("favorites", JSON.stringify(storedPics))
+      setIsFavorite(true)
     }
     else {
       localStorage.setItem("favorites", JSON.stringify([id]))
     }
-  }
-
-  const removeFromFavorite = (id:number) =>{
-    if (localStorage.favorites) {
-      let storedPics = JSON.parse(localStorage.favorites);
-      storedPics.filter((e: number)=> e===id)
-      localStorage.setItem("favorites", JSON.stringify(storedPics))
-    }
-  }
-
-  const isFavorite = (id:number) =>{
-    if (localStorage.favorites) {
-      return JSON.parse(localStorage.favorites).includes(id);
-    }
-    return false
   }
 
 
@@ -35,7 +22,7 @@ function ImageCard({image}: any ) {
     <div className="image-card"  >
       <div className="image-container">
       <img src={image.url} alt={image.title}/>
-      { isFavorite(image.id) ? <div className="favorite-icon">Favorite</div> : <div></div>}
+      { isFavorite ? <div className="favorite-icon"> ❤️ </div> : <div></div>}
       </div>
      
      <div className="image-box">

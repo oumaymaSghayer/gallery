@@ -1,5 +1,6 @@
 export interface Image{
-    id: number
+    id: string
     title: string;
     url: string;
+    favorite?: boolean;
 }
